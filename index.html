@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Pets</title>
+  <!-- tailwind & daisy ui cdn -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- font-awesome cdn -->
+  <script src="https://kit.fontawesome.com/ae1526453f.js" crossorigin="anonymous"></script>
+  <!-- Google font cdn -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+  <!-- tailwind css configuration -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+            text_color: 'rgba(19, 19, 19)',
+            btn_color: 'rgba(14, 122, 129)',
+            btn_color2: 'rgba(14, 122, 129,0.1)',
+          },
+          fontFamily: {
+            Lato: ['Lato', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+<style>
+  /* Spinner styles */
+  #spinner {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-top: 4px solid #000;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin: 20px auto;
+  }
+
+  /* Spinner animation */
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+ 
+</style>
+</head>
+
+<body class="font-Lato">
+  <!-- header section -->
+  <header>
+    <!-- this is navbar -->
+    <div class="nav-container w-full h-28 pt-5">
+      <div class="navbar w-11/12 mx-auto">
+        <div class="navbar-start flex gap-2">
+          <img src="images/logo.webp" alt="">
+          <h1 class="font-extrabold text-2xl">Peddy</h2>
+        </div>
+        <div class="navbar-center flex gap-5 ">
+          <div class="hidden md:block">
+            <h5 class="text_color">Home</h5>
+          </div>
+          <div class="hidden md:block">
+            <h5 class="text_color">Shop</h5>
+          </div>
+          <div class="hidden md:block">
+            <h5 class="text_color">Contact</h5>
+          </div>
+
+        </div>
+        <div class="navbar-end">
+          <div class="w-10 h-10 border rounded-full p-1 ">
+            <img class="" src="https://img.icons8.com/?size=32&id=22396&format=png" alt="">
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!-- banner -->
+    <div class="flex flex-col items-center gap-7 mt-5">
+      <h4 class="text_color">Bringing Families Together ❤️‍🔥</h4>
+      <div class="text-center">
+        <h1 class="font-extrabold text-3xl md:text-6xl">Your Path to Adoption <br> Starts Here</h1>
+      </div>
+      <div class="text-center">
+        <p class="text_color">Hi!! pet lovers.There is a vast collection of pets waiting for you with <br> many facilities in your affordable range.So hurry...grab your own one</p>
+      </div>
+      <div>
+        <button class="view btn bg-btn_color text-white"><a href="#Goto">View More</a></button>
+      </div>
+      <div class="w-11/12 md:w-3/5 mx-auto">
+        <img class="w-full h-full object-cover" src="images/pet.webp" alt="">
+      </div>
+
+    </div>
+
+  </header>
+  <main>
+    <section id="Goto" class="w-11/12 mx-auto flex flex-col items-center mt-20 gap-6">
+      <div>
+        <h2 class="font-bold text-3xl">Adopt Your Best Friend</h2>
+      </div>
+      <div class="text-center">
+        <p class="text_color">Browse through our this adoption section and find your new best friend. <br> We provide different categories of them check it out.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6" id="categories">
+        <!-- <button class="w-72 h-24 btn  flex gap-3 items-center justify-center">
+          <img src="images/icons8-dogs-64.png" alt="">
+          <h2>Dogs</h2>
+        </button>
+      <button class="w-72 h-24 btn flex gap-3 items-center justify-center">
+          <img src="images/icons8-cat-face-48.png" alt="">
+          <h2>Cats</h2>
+      </button>
+      <button class="w-72 h-24 btn flex gap-3 items-center justify-center">
+          <img src="images/icons8-rabbit-100.png" alt="">
+          <h2>Rabbits</h2>
+      </button>
+      <button class="w-72 h-24 btn flex gap-3 items-center justify-center">
+          <img src="images/icons8-parrot-48.png" alt="">
+          <h2>Birds</h2>
+      </button> -->
+      </div>
+    </section>
+    <section class="w-11/12 mx-auto  my-5">
+      <div class="flex justify-between mx-auto">
+        <h2 class="font-extrabold text-xl">Best deals for you</h2>
+        <button id="sortPrice" onclick="price()" class="btn bg-btn_color text-white">Sort by Price</button>
+      </div>
+      <div id="spinner"></div>
+       <div id="afterLoad" class="flex md:gap-1">
+         <div id="pets-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 w-3/5 md:w-3/4 mt-7 border rounded-md">
+         
+      </div>
+      <div id="like-container" class="grid grid-cols-1 lg:grid-cols-2 grid-flow-row auto-rows-max w-2/5 md:w-1/4 mt-7 border rounded-md">
+         
+      </div>
+       </div>
+     
+      <!-- <div class="w-3/4">
+
+      </div>
+      <div class="w-1/4">
+
+      </div> -->
+    </section>
+  </main>
+
+  <!-- Open the details modal using ID.showModal() method -->
+  <button id="showDetailsData" class="btn hidden" onclick="customModal.showModal()">
+    open modal
+  </button>
+  <dialog id="customModal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <div id="modal-content">
+
+      </div>
+      <div class="modal-action">
+        <form method="dialog" class="">
+          <!-- if there is a button in form, it will close the modal -->
+          <button class="btn bg-btn_color2 w-96 md:w-[450px] text-btn_color font-bold">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+  <!-- Open the adopt modal using ID.showModal() method -->
+  <button id="showAdoptData" class="btn hidden" onclick="TimeModal.showModal()">
+    open modal
+  </button>
+  <dialog id="TimeModal" class="modal modal-bottom sm:modal-middle">
+    <div class="modal-box">
+      <div id="modal-content2">
+       
+      </div>
+      <div class="modal-action">
+        <form method="dialog" class="">
+          <!-- if there is a button in form, it will close the modal -->
+          <button class="btn bg-btn_color2 w-96 md:w-[450px] text-btn_color font-bold">Close</button>
+        </form>
+      </div>
+    </div>
+  </dialog>
+
+
+  <!-- footer section -->
+  <footer class="bg-black md:h-96 mt-10 p-16 flex flex-col md:flex-row">
+    <div class="md:w-2/5 mb-10 md:mb-0">
+      <div class="flex gap-2">
+        <div class="mb-8">
+          <img src="images/logo.webp" alt="">
+        </div>
+        
+        <h1 class="font-extrabold text-2xl text-white">Peddy</h2>
+      </div>
+      <p class="text-white">
+        Location: av. Washington 165, NY CA <br>
+         54003 <br>
+        Phone: +31 85 964 47 25 <br>
+        Email: info@yourdomain.com <br>
+        Openings hours: 9.00 AM - 5.00 PM <br>
+      </p>
+      <div class="flex gap-2 mt-4">
+        <img src="https://img.icons8.com/?size=48&id=uLWV5A9vXIPu&format=png" alt="">
+        <!-- <img src="https://img.icons8.com/?size=50&id=6Fsj3rv2DCmG&format=png" alt=""> -->
+        <i class="fa-brands fa-x-twitter text-white text-3xl mt-2"></i>
+        <img src="https://img.icons8.com/?size=48&id=19318&format=png" alt="">
+        <img src="https://img.icons8.com/?size=48&id=Xy10Jcu1L2Su&format=png" alt="">
+      </div>
+    </div>
+
+    <div class="md:w-1/5 flex-col mb-10 md:mb-0">
+      <div class="mb-8">
+        <h3 class="text-white ml-20 md:ml-20 text-lg">Useful links</h3>
+      </div>
+    <div class="flex flex-col gap-3 ml-20 md:ml-20">
+      <a class="text-white" href="">Home</a>
+      <a class="text-white" href="">AboutUs</a>
+      <a class="text-white" href="">Animals</a>
+      <a class="text-white" href="">Foundation</a>
+      <a class="text-white" href="">Contact</a>
+    </div>
+  </div>
+    <div class="md:w-2/5 flex flex-col items-center ">
+      <div class="mb-8">
+        <h3 class="text-white md:ml-12 text-lg">Drop a Message</h3>
+      </div>
+      <input class="bg-slate-600 text-white my-5 rounded-md h-10 w-52 border-none md:ml-32 p-3" placeholder="Enter your Email" type="text">
+    <div>
+        <button class="btn bg-btn_color text-white border-none w-52 md:ml-32">Subscribe</button>
+    </div>
+  </footer>
+
+  <script src="index.js"></script>
+</body>
+
+</html>
